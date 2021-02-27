@@ -1,0 +1,22 @@
+.dashboard-main{
+  
+    display: flex;
+}
+.dashboard-sidebar{
+    width: 20%;
+    background-color: rgb(253, 223, 251);
+    border:1px solid rgb(204, 201, 201);
+    height: 100vh;
+}
+.dashboard-body{
+    width:80%;
+   
+    border:1px solid rgb(204, 201, 201);
+   
+    height: 100vh;
+}
+.dashboardsidebar-main{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
