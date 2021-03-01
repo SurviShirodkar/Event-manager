@@ -1,9 +1,17 @@
 import React from 'react'
 import './addcomponent.scss'
 
-export default function AddComponent() {
-  const[userDetails,setUserDetails]=React.useState({firstname:"",lastname:"",contactnumber:"",gender:"",Email:"",Event:""});
-    return (
+export default function AddComponent({userList,setUserList}) {
+  const[userDetails,setUserDetails]=React.useState({firstname:"",lastname:"",contactnumber:"",gender:"",email:"",event:""});
+  
+  const submitButton= ()=>{
+    setUserList([...userList,userDetails])
+  }
+  React.useEffect(()=>{
+    console.log("userList",userList)
+  },[userList])
+  
+  return (
       <div className="container">
         <div className=" Addcomponent-main">
          
@@ -23,15 +31,15 @@ export default function AddComponent() {
               <input type="text" className="form-control" id="contact" placeholder="7768076298" onChange={(e)=>{setUserDetails({...userDetails,contactnumber:e.target.value})}}></input>
               <div className="form-group d-flex mt-3">
               <label className="mr-3 " >Gender :</label>  
-              <div class="form-check mr-3">
-                <input class="form-check-input mt-3" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onChange={(e)=>{setUserDetails({...userDetails,gender:e.target.value})}}></input>
-                <label class="form-check-label " for="exampleRadios1">
+              <div className="form-check mr-3">
+                <input className="form-check-input mt-3" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onChange={(e)=>{setUserDetails({...userDetails,gender:e.target.value})}}></input>
+                <label className="form-check-label " for="exampleRadios1">
                  Female
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input mt-3" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onChange={(e)=>{setUserDeatils({...userDetails,gender:e.target.value})}}></input>
-                <label class="form-check-label " for="exampleRadios1">
+              <div className="form-check">
+                <input className="form-check-input mt-3" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onChange={(e)=>{setUserDetails({...userDetails,gender:e.target.value})}}></input>
+                <label className="form-check-label " for="exampleRadios1">
                  Male
                 </label>
               </div>
@@ -40,7 +48,7 @@ export default function AddComponent() {
               <input type="email" className="form-control" id="exampleInputEmail1"  placeholder="John@gmail.com" onChange={(e)=>{setUserDetails({...userDetails,email:e.target.value})}}></input>
               <div className="form-group mt-2">
               <label >Event Name</label>
-              <select class="custom-select" id="inputGroupSelect01" onChange={(e)=>{setUserDetails({...userDetails,event:e.target.value})}}>
+              <select className="custom-select" id="inputGroupSelect01" onChange={(e)=>{setUserDetails({...userDetails,event:e.target.value})}}>
                 <option selected>Choose...</option>
                 <option value="1">Happenings</option>
                 <option value="2">Fact</option>
@@ -48,7 +56,7 @@ export default function AddComponent() {
               </select>
               </div>
               <div className="text-center">
-              <button type="button" class="btn btn-success btn-lg btn-block text-white">S U B M I T</button>
+              <button type="button" className="btn btn-success btn-lg btn-block text-white" onClick={()=>submitButton()}>S U B M I T</button>
 
           </div>
               
