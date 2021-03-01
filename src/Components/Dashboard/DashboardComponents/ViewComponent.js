@@ -1,10 +1,15 @@
 import React from 'react'
 import './viewcomponent.scss'
 
-export default function ViewComponent() {
+export default function ViewComponent({userList}) {
+    React.useEffect(() => {
+        console.log("userlist",userList)
+    },[])
     return (
+       
         <div>
-            <h1>View</h1>
+            { userList.map  (obj => <div></div>
+            )}
         </div>
     )
 }
