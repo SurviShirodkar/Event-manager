@@ -14,7 +14,7 @@ export default function DashboardBody({contentSelector}) {
    }
     }
     return (
-        <div>
+        <div className="w-100 h-100">
             {componentSelector()}
 
 
