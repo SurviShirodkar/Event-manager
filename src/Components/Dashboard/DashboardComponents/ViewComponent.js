@@ -8,7 +8,7 @@ export default function ViewComponent({userList}) {
     return (
        
         <div>
-            { userList.map  (obj => <div></div>
+            { userList.map(obj => <div>{obj.email}</div>
             )}
         </div>
     )

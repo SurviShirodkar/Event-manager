@@ -8,7 +8,7 @@ export default function DashboardBody({contentSelector}) {
     const componentSelector = () =>{
    switch(contentSelector.id){
        case "add" : return <AddComponent userList={userList} setUserList={setUserList}/>;
-       case "view" : return <ViewComponent/>;
+       case "view" : return <ViewComponent userList={userList}/>;
        case "analysis" : return <AnalysisComponent/>;
 
    }
