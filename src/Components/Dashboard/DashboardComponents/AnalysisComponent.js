@@ -2,8 +2,17 @@ import React from 'react'
 import './analysiscomponent.scss'
 
 export default function AnalysisComponent({userList,setUserList}) {
+
+  const [modalState, setModalState] = React.useState(false)
     return (
         <div className="analysis-main">
+          <div className={modalState?"overlay":"d-none"}>
+            <button onClick={()=>setModalState(false)} className="close-button">X</button>
+            <div className="modal-main">
+
+            </div>
+
+          </div>
           <table className="table  table-striped">
             <thead>
                 <tr>
@@ -27,7 +36,7 @@ export default function AnalysisComponent({userList,setUserList}) {
                     <td>{obj.gender}</td>
                     <td>{obj.email}</td>
                     <td>{obj.event}</td>
-                    <td><button className="analysis-edit "  data-toggle="modal" data-target="#exampleModal">E</button></td>
+                    <td><button onClick={()=>setModalState(true)} >E</button></td>
                     <td><button  className="analysis-delete">D</button></td>
                     </tr>)
                 }
@@ -35,31 +44,6 @@ export default function AnalysisComponent({userList,setUserList}) {
             </tbody>
         </table>
 
-
-
-       
-
-
-<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div className="modal-body">
-        ...
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
- 
 
         </div>
     )
