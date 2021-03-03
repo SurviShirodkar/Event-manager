@@ -7,15 +7,15 @@ export default function ViewComponent({ userList }) {
   }, []);
   return (
     <div className="viewComponentMain">
-        <table>
+        <table className="table  table-striped">
             <thead>
                 <tr>
-                    <th>Hye</th>
-                    <th>Hye</th>
-                    <th>Hye</th>
-                    <th>Hye</th>
-                    <th>Hye</th>
-                    <th>Hye</th>
+                    <th>firstname</th>
+                    <th>Lastname</th>
+                    <th>Contact Number</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Event</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,10 +24,10 @@ export default function ViewComponent({ userList }) {
 
                     <td>{obj.firstname}</td>
                     <td>{obj.lastname}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{obj.contactnumber}</td>
+                    <td>{obj.gender}</td>
+                    <td>{obj.email}</td>
+                    <td>{obj.event}</td>
                     </tr>)
                 }
 

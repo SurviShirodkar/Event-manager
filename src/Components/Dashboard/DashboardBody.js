@@ -9,7 +9,7 @@ export default function DashboardBody({contentSelector}) {
    switch(contentSelector.id){
        case "add" : return <AddComponent userList={userList} setUserList={setUserList}/>;
        case "view" : return <ViewComponent userList={userList}/>;
-       case "analysis" : return <AnalysisComponent/>;
+       case "analysis" : return <AnalysisComponent userList={userList} setUserList={setUserList}/>;
 
    }
     }

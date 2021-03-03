@@ -5,8 +5,11 @@ export default function AddComponent({userList,setUserList}) {
   const[userDetails,setUserDetails]=React.useState({firstname:"",lastname:"",contactnumber:"",gender:"",email:"",event:""});
   
   const submitButton= ()=>{
-    setUserList([...userList,userDetails])
+    setUserList([...userList,userDetails]);
+    setUserDetails({firstname:"",lastname:"",contactnumber:"",gender:"",email:"",event:""})
+
   }
+  
   React.useEffect(()=>{
     console.log("userList",userList)
   },[userList])
@@ -24,25 +27,19 @@ export default function AddComponent({userList,setUserList}) {
             <p>Sign up and receive free talk with survi and shailesh with some exciting offers .</p>
             <form>
               <label >First Name </label>
-              <input type="text" className="form-control" id="nameid" placeholder="Shailesh" onChange={(e)=>{setUserDetails({...userDetails,firstname :e.target.value})}}></input>
+              <input type="text" className="form-control" id="nameid" value={userDetails.firstname} placeholder="Shailesh" onChange={(e)=>{setUserDetails({...userDetails,firstname :e.target.value})}}></input>
               <label >Last Name </label>
               <input type="text" className="form-control" id="lastname" placeholder="Haldankar" onChange={(e)=>{setUserDetails({...userDetails,lastname :e.target.value})}}></input>
               <label >Contact Number </label>
               <input type="text" className="form-control" id="contact" placeholder="7768076298" onChange={(e)=>{setUserDetails({...userDetails,contactnumber:e.target.value})}}></input>
-              <div className="form-group d-flex mt-3">
+              <div className="form-group mt-3">
               <label className="mr-3 " >Gender :</label>  
-              <div className="form-check mr-3">
-                <input className="form-check-input mt-3" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onChange={(e)=>{setUserDetails({...userDetails,gender:e.target.value})}}></input>
-                <label className="form-check-label " for="exampleRadios1">
-                 Female
-                </label>
-              </div>
-              <div className="form-check">
-                <input className="form-check-input mt-3" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onChange={(e)=>{setUserDetails({...userDetails,gender:e.target.value})}}></input>
-                <label className="form-check-label " for="exampleRadios1">
-                 Male
-                </label>
-              </div>
+              <select className="custom-select" id="inputGroupSelect01" onChange={(e)=>{setUserDetails({...userDetails,gender:e.target.value})}}>
+                <option selected>Choose...</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="others">others</option>
+              </select>
               </div>
               <label >Email Address </label>
               <input type="email" className="form-control" id="exampleInputEmail1"  placeholder="John@gmail.com" onChange={(e)=>{setUserDetails({...userDetails,email:e.target.value})}}></input>
@@ -50,13 +47,13 @@ export default function AddComponent({userList,setUserList}) {
               <label >Event Name</label>
               <select className="custom-select" id="inputGroupSelect01" onChange={(e)=>{setUserDetails({...userDetails,event:e.target.value})}}>
                 <option selected>Choose...</option>
-                <option value="1">Happenings</option>
-                <option value="2">Fact</option>
-                <option value="3">motu</option>
+                <option value="Happenings">Happenings</option>
+                <option value="Fact">Fact</option>
+                <option value="others">others</option>
               </select>
               </div>
               <div className="text-center">
-              <button type="button" className="btn btn-success btn-lg btn-block text-white" onClick={()=>submitButton()}>S U B M I T</button>
+              <button type="button" className="btn btn-success btn-lg btn-block text-white"  onClick={()=>submitButton()}>S U B M I T</button>
 
           </div>
               
